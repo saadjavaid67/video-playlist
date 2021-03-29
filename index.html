@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Playlist</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        
+        main {
+            width: 100%;
+            background-color: #2e2e2e;
+            border-radius: 5px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: row;
+        }
+        
+        #playlist {
+            max-width: 400px;
+            min-width: 300px;
+            padding: 0 10px;
+            overflow: auto;
+        }
+        
+        #player {
+            width: 100%;
+            height: 500px;
+        }
+        
+        #player iframe {
+            height: 500px;
+            width: 100%;
+        }
+        
+        .playlistVideo {
+            position: relative;
+        }
+        
+        .widget {
+            left: 0px;
+            position: absolute;
+            display: block;
+            z-index: 100001;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div id="player">
+            <iframe id='video' width="100%" src="" title="YouTube video player" frameborder="0"></iframe>
+        </div>
+        <div id="playlist">
+            <div class="playlistVideo">
+                <div id='1' onclick="clickhandler(id)" class="widget"></div>
+                <div style="height:190px"><iframe id='frame-1' width="100%" height="190" src="https://www.youtube.com/embed/iskVS7obEXg?controls=0" title="YouTube video player" frameborder="0"></iframe> </div>
+            </div>
+            <div class="playlistVideo">
+                <div id='2' onclick="clickhandler(id)" class="widget"></div>
+                <div style="height:190px"><iframe id='frame-2' width="100%" height="190" src="https://www.youtube.com/embed/ipqKeQQpqAI?controls=0" title="YouTube video player" frameborder="0"></iframe> </div>
+            </div>
+            <div class="playlistVideo">
+                <div id='1' onclick="clickhandler(id)" class="widget"></div>
+                <div style="height:190px"><iframe id='frame-1' width="100%" height="190" src="https://www.youtube.com/embed/iskVS7obEXg?controls=0" title="YouTube video player" frameborder="0"></iframe> </div>
+            </div>
+            <div class="playlistVideo">
+                <div id='2' onclick="clickhandler(id)" class="widget"></div>
+                <div style="height:190px"><iframe id='frame-2' width="100%" height="190" src="https://www.youtube.com/embed/ipqKeQQpqAI?controls=0" title="YouTube video player" frameborder="0"></iframe> </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        video = document.getElementById('video');
+
+        function clickhandler(id) {
+            console.log(id)
+            video.src = document.getElementById('frame-' + id).src;
+        }
+    </script>
+</body>
+
+</html>
